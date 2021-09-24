@@ -5,44 +5,59 @@ var generateBtn = document.querySelector("#generate");
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
-
   passwordText.value = password;
+
+  if(password =="failed") {
+    writePassword()
+  } else {
+    passwordText.value = password;
+  }
+}
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
-}
 
+//define variables
+var temp = []
+var final= []
+var upperCase = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]
+var lowerCase = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]
+var num = ["1","2","3","4","5","6","7","8","9","0"]
+var spChar = ["!","@","#","$","%","^","&","*","(",")"]
 
+//create function for pop-up user inputs
+function generatePassword() {
+//clear last password??? could not get this to work.
 
-button.onclick = function passwordCriteria() {
 //password length 
-var length = promt("How long do you want your password to be? (8-128 characters)")
-
-//upper case, lower case
- var upperCase = confirm("Do you want to include UPPERCASE letters?")
- if(upperCase === true) {
-      charsToInclude.push("uc")
+var length = parseInt(prompt("How long do you want your password to be? (8-128 characters)"));
+if (isNaN(length) || length <8 || length >128) {
+  alert("Please input a valid number (8-128)");
+  return "failed"
+}
+//upper case
+ if(confirm("Do you want to include UPPERCASE letters?")) {
+      temp = temp.concat(upperCase)
  }
- var lowerCase = confirm("Do you want to include lowercase letter?")
- if(lowerCase === true) {
-      charsToInclude.push("lc")
+ //lower case
+ if(confirm("Do you want to include lowercase letter?")) {
+  temp = temp.concat(lowerCase)
  }
 //numbers 
- var num = confirm("do you want to include numbers?")
- if(num === true) {
-      charsToInclude.push("nu")
+ if(confirm("do you want to include numbers?")) {
+  temp = temp.concat(num)
  }
 //special characters
- var spChar = confirm("Do you want to include special characters?")
- if(spChar === true) {
-      charsToInclude.push("sp")
+ if(confirm("Do you want to include special characters?")) {
+      temp = temp.concat(spChar)
  }
-return;
+ //for loop that compiles chosen length of temporary variables into the final password
+ for (let i = 0; i < length; i++) {
+   var randomPassword = temp[Math.floor(Math.random()*temp.length)];
+   final.push(randomPassword);
+ }
+return final.join("").toString();
 };
 
 
 
-
-// var string = "abcdefghijklmnopqrstuvwxyz"; //to upper 
-//     var numeric = '0123456789';
-//     var punctuation = '!@#$%^&*()_+~`|}{[]\:;?><,./-=';

@@ -1,24 +1,10 @@
 # random_password_generator
 
-GIVEN I need a new, secure password
+Description: This application is for a webpage that generates a random password when the user inputs their desired specifications. When the user clicks the generate password button, they are prompted with a pop-up window to specify how long they want their password to be. If the user does not input a number between 8-128 or they don't choose a number at all, then an alert pops up informing them that they must choose a number between 8-128.  The next choices are yes or no options if the user wants to include upper case, lower case, numbers, and special characters. After the user specifies whether they want all these available choices, then a randomly generated password using only their desired choices pops into the text box on the page. 
 
-WHEN I click the button to generate a password
-THEN I am presented with a series of prompts for password criteria
+Screenshots: 
+![Screen Shot 2021-09-23 at 9 07 25 PM](https://user-images.githubusercontent.com/90110594/134607651-9635a99c-de14-4e5e-9ed5-2a25709de641.png)
+![Screen Shot 2021-09-23 at 9 07 43 PM](https://user-images.githubusercontent.com/90110594/134607663-28cc2e51-adbd-484f-935b-c96c62c238f1.png)
+![Screen Shot 2021-09-23 at 9 08 07 PM](https://user-images.githubusercontent.com/90110594/134607672-27c03bd1-7be4-4e2f-9bad-51e56b51fe30.png)
 
-WHEN prompted for password criteria
-THEN I select which criteria to include in the password
-
-WHEN prompted for the length of the password
-THEN I choose a length of at least 8 characters and no more than 128 characters
-
-WHEN asked for character types to include in the password
-THEN I confirm whether or not to include lowercase, uppercase, numeric, and/or special characters
-
-WHEN I answer each prompt
-THEN my input should be validated and at least one character type should be selected
-
-WHEN all prompts are answered
-THEN a password is generated that matches the selected criteria
-
-WHEN the password is generated
-THEN the password is either displayed in an alert or written to the page
+Link to deployed application: <a href="https://samibyers.github.io/random_password_generator/" target="_blank">Random Password Generator</a>
